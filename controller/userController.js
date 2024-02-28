@@ -4,12 +4,6 @@ const bcrypt = require("bcryptjs");
 
 // CREATE: untuk enambahkan data kedalam tabel user
 exports.create = (req, res) => {
-    // validate request
-    if (!req.body.title) {
-        return res.status(400).send({
-            message: "Title can not be empty",
-        });
-    }
 
     // daya yang didapatkan dari inputan oleh pengguna
     ;
@@ -17,7 +11,6 @@ exports.create = (req, res) => {
         name: req.body.name,
         email: req.body.email,
         password: bcrypt.hashSync(req.body.password),
-        role: req.body.role ? req.body.role : false,
     };
 
     // proses menyimpan kedalam database
@@ -64,8 +57,8 @@ exports.update = (req, res) => {
     const userData = {
         name: req.body.name,
         email: req.body.email,
-        password: req.body.password, // Updated password (hashed if present in the request)
-        role: req.body.role ? req.body.role : false,
+        password: req.body.password
+         // Updated password (hashed if present in the request
         // Add other fields as needed
     };
 

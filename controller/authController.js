@@ -36,7 +36,6 @@ function register(req, res) {
     const name = req.body.name;
     const email = req.body.email;
     const password = req.body.password;
-    const role = req.body.role;
 
     // Check if the user already exists
     model.User.findOne({
@@ -57,7 +56,6 @@ function register(req, res) {
                 name: name,
                 email: email,
                 password: hashedPassword,
-                role: role,
             }).then(function (newUser) {
                 res.json({
                     message: "Registration successful",
@@ -68,7 +66,6 @@ function register(req, res) {
                         id: newUser.id,
                         name: newUser.name,
                         email: newUser.email,
-                        role: newUser.role
                     }
                 });
             }).catch(function (error) {

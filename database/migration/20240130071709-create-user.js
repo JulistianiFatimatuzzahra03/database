@@ -20,18 +20,6 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
-      role: {
-        type: Sequelize.ENUM("admin", "member"),
-        allowNull: false
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      },
-      updatedAt: {
-        allowNull: false,
-        type: Sequelize.DATE
-      }
     });
   },
   async down(queryInterface, Sequelize) {
